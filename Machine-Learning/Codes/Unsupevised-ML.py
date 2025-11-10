@@ -4,21 +4,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-# --- Generate sample data (age vs income) ---
+#  Generate sample data (age vs income)
 X = np.array([
     [25, 40000], [27, 48000], [23, 35000], [45, 80000],
     [40, 75000], [50, 90000], [60, 95000]
 ])
 
-# --- Apply KMeans (let's find 2 clusters) ---
+# Applying KMeans (let's find 2 clusters)
 kmeans = KMeans(n_clusters=2, random_state=0)
 kmeans.fit(X)
 
-# --- Get results ---
+#  Get results
 labels = kmeans.labels_
 centers = kmeans.cluster_centers_
 
-# --- Visualize ---
+# Visualize
 plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis', label='Customers')
 plt.scatter(centers[:, 0], centers[:, 1], c='red', marker='X', s=200, label='Centers')
 plt.xlabel("Age")
